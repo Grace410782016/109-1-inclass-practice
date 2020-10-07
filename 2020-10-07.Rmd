@@ -1,0 +1,81 @@
+---
+title: '2020-10-07'
+author: "Grace"
+date: "2020/10/7"
+output: html_document
+---
+
+```{r}
+myname<-"Grace" #定義值若是文字習慣加上雙引號
+num1<-5
+vnum1<-c(2,5)
+vnum1<-vnum2
+vnum2<-c(2,vnum1)
+```
+
+```{r}
+heightOfEntireClassroom<-c()
+
+heightOfEntireClassroom2<-c()
+```
+
+```{r}
+heightOfStudentComingIntoClassroom<-sample(165:200,3)
+```
+
+```{r}
+#method 1
+heightOfEntireClassroom<-c(heightOfEntireClassroom,heightOfStudentComingIntoClassroom)
+```
+
+```{r}
+c(5,"Grace") #non-Atomic因為兩者是不一樣的type，
+#R會以為其實你要打的是"5" "Grace"兩者皆文字
+c(5,7) #same type皆數字
+c("john","mary") #same type 皆文字
+
+```
+
+```{r}
+num1<-5 # 非整數
+num2<-5L # 整數
+
+num1Vector<-c(5,6,7)
+num2Vector<-c(5L,6L,7L)
+```
+
+```{r}
+object.size(num1Vector)
+object.size(num2Vector) 
+#可以得知確實存取整數，當資料量很大時，較省記憶體空間
+```
+
+```{r}
+char1Vector<-c("你好","How are you?")
+
+dialogue <- c('小明說："明天不用上課。"',
+               '小花說："真的嗎？"')
+#因為本身文字資訊就有使用雙引號，所以使用單引號括號
+#所以若前後都使用雙引號，會拆成兩個字串
+#"曉明說:"一個字串 明天不用上課-沒有變成字串 ""
+d1<-'小明說:"明天不用上課。"'
+d2<-"小明說:\"明天不用上課\""#反斜線表示這個雙引號不用成字串
+
+dialogue # 顯示原始值的內容（含輸入時的引號）
+cat(dialogue, sep="\n") #斜線表示escape 顯示給人類看（含存出來）的值，sep="\n", 不同元素換行陳列。
+writeLines(dialogue, "conversation.txt") # cat顯示的正是存出來樣貌。
+```
+
+```{r}
+context <- "老師說換行要寫\\n" # 請依下列情境輸入
+cat(context) #\n就像是換行enter
+#所以若要打出"老師說換行要寫\n 這句話
+#就要在原本的反斜線前面 再加一個反斜線去跳脫
+
+```
+
+```{r}
+context <- "老師說換行要寫" # 請依下列情境輸入
+cat(context)
+```
+
