@@ -1,0 +1,178 @@
+---
+title: "2020_10_28"
+author: "Grace"
+date: "2020/10/28"
+output: html_document
+---
+
+```{r}
+vectorExample <- c("小明", "小英", "大雄")
+
+# 有多少位置可選：
+length(vectorExample)
+```
+
+```{r}
+vectorExample[[1]]
+vectorExample[[3]]
+```
+
+```{r}
+listExample <- list(student = "小明", 學期 = list(`108-1` = list(list(name = "個體經濟學", 
+    teacher = "Alice", grade = 85)), `108-2` = list(list(name = "總體經濟學", 
+    teacher = "Mark", grade = 78))))
+# 有多少位置可選：
+length(listExample)
+```
+
+```{r}
+str(listExample,1)
+
+```
+
+```{r}
+listExample[c(1,2)]
+listExample[["student","學期"]]
+listExample[c(T,T)]
+```
+
+```{r}
+listExample[[1]]
+listExample[[2]]
+```
+
+```{r}
+vectorExample
+vectorExample[c(1, 3)]#取第一個和第三個
+
+```
+
+```{r}
+#取一巷的時候用兩個中括號，取多個項時用兩個中括號
+vectorExample[c(1)]
+vectorExample[[1]]
+```
+
+```{r}
+#取多個項的時候，都用同樣的形式，不可以一個用第幾項表示，一個用該項的名字表示
+vectorExample[c("p1",1)]
+```
+
+```{r}
+vectorExample
+vectorExample[c(T, T, F)]  # 要，要，不要
+```
+
+```{r}
+pickByNumbers<-c(1,3)
+pickByLogical<-c(T,F,T)
+```
+
+```{r}
+vectorExample[pickByNumbers]
+vectorExample[pickByLogical]
+```
+
+```{r}
+numVector <- c(2, 3, 6, -1, 4, 2, 6)
+select1 <- numVector[c(1, 4)]
+select1
+select2 <- select1[[1]]
+select2
+
+# 相當於
+numVector[c(1, 4)][[1]]
+#所以是(numVector[c(1,4)])這部分先做，在做[[]]的選取
+```
+
+```{r}
+select1 <- numVector[c(T, T, F, T, F, F, T)]
+select1
+select2 <- select1[c(1, 4)]
+select2
+
+# 相當於
+numVector[c(T, T, F, T, F, F, T)][c(1, 4)]
+```
+
+```{r}
+majorsStudent <- c("經濟學系", "經濟學系", "社會學系", "社工系", "經濟學系")
+namesStudent <- c("小英", "小美", "大雄", "阿華", "阿尼")
+genderStudent <- c("F", "F", "M", "F", "M")
+```
+
+```{r}
+majorsStudent
+```
+```{r}
+pickEcon<-c(T,T,F,F,T)#長度為五的要不要向量
+namesEcon<-namesStudent[pickEcon] #可以選出只有經濟系學生的名字
+genderEcon<-genderStudent[pickEcon] #可以選出只有經濟系學生的成績
+```
+
+```{r}
+#選出是經濟系又是男性的>把上面的物件都命名，然後直接用上提選出來的物件的第三項就是
+namesEcon[[3]]
+#其實可以直接串接
+namesStudent[pickEcon][[3]]
+```
+
+```{r}
+whichHasEcon<-which(pickEcon) 
+#which是把邏輯轉成數據，所以邏輯的(要，要，要，不要，不要，要)變成(1,2,5)
+
+```
+
+```{r}
+pickEconNum<-c(1,2,5)
+namesStudent[pickEconNum]
+genderStudent[pickEconNum]
+```
+
+```{r}
+today <- list(list("台北市", c(highest_temp = 25), c(lowest_temp = 18)), list("新北市", 
+    c(highest_temp = 24), c(lowest_temp = 15)))
+tomorrow <- list(list("台北市", c(highest_temp = 25), c(lowest_temp = 18)), list("新北市", 
+    c(highest_temp = 24), c(lowest_temp = 15)))
+
+weather <- list(today, tomorrow)
+
+print(weather)
+
+```
+分析他的元素結構 可以用str去看 或是用[[]]去取出各項來看看
+```{r}
+#先看結構
+str(weather,1)
+str(weather,2)
+str(weather,3)
+```
+
+```{r}
+weather[[1]]
+str(weather,1)#看出還沒命名，因為跑出來都是list of ...
+```
+
+```{r}
+weather[[1]][[1]]
+weather[[1]][[2]]
+```
+```{r}
+weather[[1]][[1]][[2]]
+#今天，台北市，最高氣溫
+```
+
+```{r}
+#可以利用golbal environment裡面的放大鏡，去看結構
+#而且還可複製出要找的該項的最正確指令
+weather[[1]][[1]][[2]][["highest_temp"]]
+```
+```{r}
+listExample$學期[["108-2"]][[1]]$teacher<-"Jason"
+#多一個<-去取代原資料中的值
+```
+
+```{r}
+listExample$學期[["108-2"]][[1]][c("name","grade")]
+```
+
