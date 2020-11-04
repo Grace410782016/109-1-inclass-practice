@@ -1,0 +1,41 @@
+---
+title: '2020-11-04'
+author: "Grace"
+date: "2020/11/4"
+output: html_document
+---
+
+```{r}
+gender="女";
+school="國立台北大學";
+title="問 泰昇補習班打工"
+content="有在板上看到過很多北大附近補習班打工不推的
+不過好像還沒看到泰昇這間的評價
+想請問大家還可以嗎🙏"
+tag=
+timestamp
+```
+
+```{r}
+photos
+"https://www.dcard.tw/f/male.jpg"#假設是男生頭像的圖片
+"https://www.dcard.tw/f/female.jpg"
+```
+
+```{r}
+library(lubridate)
+```
+
+
+```{r}
+#作業裡面不可以用<-要用等號 表示命名
+electoral_college_vote <- list(
+  time = c(ymd_hm("2020-11-03 14:40 "),ymd,hm("time2
+  ")
+  Trump=c("213","215")
+  Biden=c("224","230")
+  talesall="270"
+ )
+  
+```
+
